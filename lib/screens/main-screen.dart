@@ -1,3 +1,5 @@
+import 'package:app_tfg_dam/components/screen-selector.dart';
+import 'package:app_tfg_dam/defaults/layout.dart';
 import 'package:flutter/material.dart';
 
 class mainScreen extends StatefulWidget {
@@ -10,10 +12,13 @@ class mainScreen extends StatefulWidget {
 class _mainScreenState extends State<mainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Center(
-        child: Text("Main Screen"),
-      )
+    return MainLayout(
+      child:ListView(
+        children: [
+          ScreenSelector(),
+          ScreenSelector()
+        ],
+      ),
     );
   }
 }

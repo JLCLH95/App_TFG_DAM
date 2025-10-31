@@ -1,4 +1,5 @@
 import 'package:app_tfg_dam/defaults/app-colors.dart';
+import 'package:app_tfg_dam/screens/main-screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,8 @@ class _SingInScreenState extends State<SingInScreen> {
 
   //Instancia de FirebaseAuth
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  bool cargando = false;
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +91,39 @@ class _SingInScreenState extends State<SingInScreen> {
             children: [
               Expanded(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: cargando
+                      ? null
+                      : () async {
+                          setState(() {
+                            cargando = true;
+                          });
+
+                          try {
+                            await _auth.signInWithEmailAndPassword(
+                              email: _emailController.text.trim(),
+                              password: _passwordController.text.trim(),
+                            );
+                            Navigator.pushReplacement(
+                              // ignore: use_build_context_synchronously
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const mainScreen(),
+                              ),
+                            );
+                          } on FirebaseAuthException catch (e) {
+                            String message = 'Error al iniciar sesión';
+                            if (e.code == 'user-not-found') {
+                              message = 'No existe un usuario con ese correo';
+                            } else if (e.code == 'wrong-password') {
+                              message = 'Contraseña incorrecta';
+                            }
+                            ScaffoldMessenger.of(
+                              context,
+                            ).showSnackBar(SnackBar(content: Text(message)));
+                          } finally {
+                            setState(() => cargando = false);
+                          }
+                        },
                   style: ButtonStyle(
                     backgroundColor: WidgetStateProperty.all(
                       AppColors.primaryColor,

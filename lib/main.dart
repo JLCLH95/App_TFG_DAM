@@ -5,9 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:app_tfg_dam/defaults/app-colors.dart';
 
 Future<void> main() async {
-  
-WidgetsFlutterBinding.ensureInitialized();
-await Firebase.initializeApp();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
   runApp(const MainApp());
 }
@@ -20,15 +19,26 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: 
-          AppColors.backgroundColor,
-          title: Text("CAN-WOD",style: TextStyle(color: AppColors.textColor, fontSize:20, fontWeight: FontWeight.bold),),
+          backgroundColor: AppColors.backgroundColor,
+          title: Text(
+            "CAN-WOD",
+            style: TextStyle(
+              color: AppColors.textColor,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          actions: [
+            Padding(
+              padding: EdgeInsets.only(right: 20),
+              child: ClipOval(
+                child: Image.asset('assets/images/logo.png', height: 40),
+              ),
+            ),
+          ],
         ),
         backgroundColor: AppColors.backgroundColor,
-        body: const Center(
-          child: 
-          SingInScreen(),
-        ),
+        body:  Center(child: SingInScreen()),
       ),
     );
   }
