@@ -15,8 +15,9 @@ class _mainScreenState extends State<mainScreen> {
     return MainLayout(
       child:ListView(
         children: [
-          ScreenSelector(),
-          ScreenSelector()
+          ScreenSelector(imgPath: 'assets/images/rm.png',txtSection:"Mejores marcas", optionKey: 'marks',),
+          ScreenSelector(imgPath: 'assets/images/tutorial.jpg', txtSection: 'Movimientos', optionKey: 'tutorials',),
+          ScreenSelector(imgPath: 'assets/images/profile.jpg', txtSection: 'Perfil', optionKey: 'profile',),
         ],
       ),
     );
