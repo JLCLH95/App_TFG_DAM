@@ -3,7 +3,6 @@ import 'package:app_tfg_dam/defaults/app_text_styles.dart';
 import 'package:app_tfg_dam/screens/marks-screen.dart';
 import 'package:app_tfg_dam/screens/moves-screen.dart';
 import 'package:app_tfg_dam/screens/profile-screen.dart';
-import 'package:app_tfg_dam/screens/sing-in-screen.dart';
 import 'package:flutter/material.dart';
 
 class ScreenSelector extends StatefulWidget {
