@@ -1,4 +1,5 @@
 import 'package:app_tfg_dam/defaults/app-colors.dart';
+import 'package:app_tfg_dam/widgets/exercise-widget.dart';
 import 'package:flutter/material.dart';
 
 class MarksScreen extends StatefulWidget {
@@ -14,7 +15,33 @@ class _MarksScreenState extends State<MarksScreen> {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBarMethod(),
-      body: Center(child: Text("Marks Screen")),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ExerciseWidget(exercise: "Back Squat"),
+              ExerciseWidget(exercise: "Front Squat"),
+              ExerciseWidget(exercise: "Overhead Squat"),
+              ExerciseWidget(exercise: "Squat Snatch"),
+              ExerciseWidget(exercise: "Deadlift"),
+              ExerciseWidget(exercise: "Clean & Jerk"),
+              ExerciseWidget(exercise: "Squat Clean"),
+              ExerciseWidget(exercise: "Push Jerk"),
+              ExerciseWidget(exercise: "Power Clean"),
+              ExerciseWidget(exercise: "Power Snatch"),
+              ExerciseWidget(exercise: "Push Press"),
+              ExerciseWidget(exercise: "Thruster"),
+              ExerciseWidget(exercise: "Cluster"),
+              ExerciseWidget(exercise: "Hang Power Clean"),
+              ExerciseWidget(exercise: "Hang Power Snatch"),
+              ExerciseWidget(exercise: "Hang Squat Clena"),
+              ExerciseWidget(exercise: "Split Jerk"),
+              ExerciseWidget(exercise: "Bench Press"),
+              ExerciseWidget(exercise: "Shoulder Press"),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

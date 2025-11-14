@@ -14,9 +14,11 @@ class _MovesScreenState extends State<MovesScreen> {
     return  Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBarMethod(),
-      body: Center(child: Text("Moves Screen")),
+      body:Column(
+        children: [
+          ]) ,
     );
-  }
+  } 
 
   
   }
